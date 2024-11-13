@@ -8,7 +8,7 @@ export const resolvers = {
     },
   },
   Mutation: {
-    createUser: async (parent, args, ctx) => {
+    createUser: async (_, args) => {
       const user = await conn.user.create({
         data: {
           name: args.name,
@@ -19,14 +19,14 @@ export const resolvers = {
       return user;
     },
 
-    getUser: async (parent, args, ctx) => {
+    getUser: async (_, args) => {
       const user = await conn.user.findUnique({
         where: { id: args.id },
       });
       return user;
     },
 
-    updateUser: async (parent, args, ctx) => {
+    updateUser: async (_, args) => {
       const user = await conn.user.update({
         where: { id: args.id },
         data: {
@@ -38,7 +38,7 @@ export const resolvers = {
       return user;
     },
 
-    deleteUser: async (parent, args, ctx) => {
+    deleteUser: async (_, args) => {
       const result = await conn.user.delete({
         where: { id: args.id },
       });
