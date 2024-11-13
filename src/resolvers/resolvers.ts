@@ -14,13 +14,21 @@ export const resolvers = {
       });
       return user;
     },
+
+    getUser: async (parent, args, ctx) => {
+        const user = await conn.user.findMany({});
+        return user;
+      },
+
     updateUser: async (parent, args, ctx) => {
       const user = await conn.user.update({
         where: { id: args.id },
         data: args,
       });
+
       return user;
     },
+
     deleteUser: async (parent, args, ctx) => {
       const result = await conn.user.delete({
         where: { id: args.id },
@@ -28,4 +36,5 @@ export const resolvers = {
       return result ? true : false;
     },
   },
+  
 };
