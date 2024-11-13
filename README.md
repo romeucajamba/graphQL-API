@@ -1,35 +1,35 @@
 ### GraphQL API
 --
-## Description
+## 📖 Descrição do Projeto
     API simple feita com graphQL
 --
-## Tecnologias
-- Node
-- Typescript
-- Apollo Server
-- GraphQL
-- Prisma
+### 🛠 Tecnologias Utilizadas
+- **Node**
+- **Typescript**
+- **Apollo Server**
+- **GraphQL**
+- **Prisma**
 
 --
-## Como utilizar
+## 🎯 Como Instalar e Usar o Projeto
     
-```bash`
+```bash
     git clone https://github.com/romeucajamba/graphQL-API
     cd graphQL-API
     npm i
     npm run server
-`
 
 ## Como fazer requisições
 - Para pegar todos e inserir usuários
-```bash` query {
-  users {
-    id
-    name
-    email
-    phone_number
+  ```bash 
+  query {
+    users {
+      id
+      name
+      email
+      phone_number
+    }
   }
-}
 
 mutation {
   createUser(name: "John Doe", email: "john.doe@example.com", phone_number: "123456789") {
@@ -39,6 +39,3 @@ mutation {
     phone_number
   }
 }
-
-
-`
