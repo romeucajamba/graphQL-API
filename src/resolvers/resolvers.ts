@@ -10,22 +10,31 @@ export const resolvers = {
   Mutation: {
     createUser: async (parent, args, ctx) => {
       const user = await conn.user.create({
-        data: args,
+        data: {
+          name: args.name,
+          email: args.email,
+          phone_number: args.phone_number,
+        },
       });
       return user;
     },
 
     getUser: async (parent, args, ctx) => {
-        const user = await conn.user.findMany({});
-        return user;
-      },
+      const user = await conn.user.findUnique({
+        where: { id: args.id },
+      });
+      return user;
+    },
 
     updateUser: async (parent, args, ctx) => {
       const user = await conn.user.update({
         where: { id: args.id },
-        data: args,
+        data: {
+          name: args.name,
+          email: args.email,
+          phone_number: args.phone_number,
+        },
       });
-
       return user;
     },
 
@@ -36,5 +45,4 @@ export const resolvers = {
       return result ? true : false;
     },
   },
-  
 };

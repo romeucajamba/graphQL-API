@@ -17,5 +17,6 @@ type Mutation {
   createUser(name: String!, email: String!, phone_number: String!): User
   updateUser(id: ID!, name: String, email: String, phone_number: String): User
   deleteUser(id: ID!): Boolean
+  getUser(id: ID!): User
 }
 `;
